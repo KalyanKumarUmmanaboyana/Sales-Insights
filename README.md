@@ -36,3 +36,8 @@ SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON trans
 9.Show total revenue in year 2020 in Chennai
 
 SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.market_code="Mark001";
+#Data Analysis Using Power BI
+Formula to create norm_amount column
+1.= Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount], type any)
+![Screenshot 2025-02-04 123647](https://github.com/user-attachments/assets/f39de2ac-b810-41d5-9877-1acf810be8ed)
+
